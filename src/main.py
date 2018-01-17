@@ -1,5 +1,6 @@
 import sys
 import src.decoder.FrameDecoder as FrameDecoder
+import src.decoder.BlockDecoder as BlockDecoder
 
 
 if __name__ == '__main__':
@@ -15,5 +16,6 @@ python lz4d.py [input_file_path] [output_file_path]
             file_content = f.read()
 
         frame_info = FrameDecoder.decode(file_content)
+        block_info = BlockDecoder.decode(file_content, frame_info['block_start'], frame_info['has_block_checksum'], frame_info['has_content_checksum'])
 
 

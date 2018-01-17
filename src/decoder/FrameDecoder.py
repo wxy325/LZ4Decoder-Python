@@ -44,9 +44,9 @@ def __decodeFrameDescriptor(file):
     if version_number != 1:
         raise Exception('Unsupport Version Number')
     if has_content_size:
-        block_start = 11
+        block_start = 15
     else:
-        block_start = 3
+        block_start = 7
 
     return {
         "has_content_checksum": has_content_checksum,
