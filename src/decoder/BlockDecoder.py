@@ -22,7 +22,7 @@ def decode(file, block_start, has_block_checksum, has_content_checksum):
 
         real_block_size = block_size & 0x7fffffff
         highest_bit = (block_size >> 31) & 1
-        is_compress = not highest_bit
+        is_compressed = not highest_bit
 
         current_position += 4
 
@@ -34,9 +34,9 @@ def decode(file, block_start, has_block_checksum, has_content_checksum):
             current_position += 4
 
         ret_block_info.append({
-            block_start: block_start,
-            block_end: block_end,
-            is_compress: is_compress
+            "block_start": block_start,
+            "block_end": block_end,
+            "is_compressed": is_compressed
         })
 
     return ret_block_info
